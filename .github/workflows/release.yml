@@ -41,8 +41,8 @@ jobs:
           asset_content_type: application/zip
   buildM:
     runs-on: macos-latest
-    permissions: write-all
-    steps:
+    permissions: write-all 
+    steps: 
       - uses: actions/checkout@v3
         with:
           submodules: true
@@ -52,8 +52,7 @@ jobs:
       - run: cmake --build . --target test
       - run: cmake --build . --target package
       - name: Create Release
-        id: ACTIONS_RUNNER_DEBUG = true
-            ACTIONS_STEP_DEBUG = true 
+        id: create_release
         uses: actions/create-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
