@@ -52,8 +52,9 @@ jobs:
       - run: cmake --build . --target test
       - run: cmake --build . --target package
       - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+        id: ACTIONS_RUNNER_DEBUG = true
+            ACTIONS_STEP_DEBUG = true 
+        uses: actions/create-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
